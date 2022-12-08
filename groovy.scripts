@@ -8,7 +8,7 @@ def runMvnClean(){
 	sh 'mvn clean'
 }
 
-def runTests(){
+def runUnitTests(){
 	echo "Maven Test JUnit"
 	sh 'mvn test'
 }
