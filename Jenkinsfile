@@ -26,6 +26,13 @@ pipeline {
 				}
 			}
 		}
+		stage ('SonarQube Tests') {
+			steps{
+				script{
+					gv.sonarQubeTest()
+				}
+			}
+		}
 	}
 }
 
