@@ -1,27 +1,28 @@
-def gv
-
 
 pipeline {
 	agent any
 	stages {
-		stage ('init') {
+		stage ('GIT') {
 			steps {
 				script{
-					gv = load "pipeline.groovy"
+					echo "Getting Project from Git"
+					git "https://github.com/khalil-yahyaoui/Project-Devops"
 				}
 			}
 		}
-		stage ('clone git') {
+		stage ('MVN CLEAN') {
 			steps {
 				script{
-					gv.gitClone()
+					echo "Maven Clean"
+					sh 'mvn clean'
 				}
 			} 
 		}
 		stage ('MVN TEST') {
 			steps{
 				script{
-					gv.runUnitTests()
+					echo "Maven Test JUnit"
+					sh 'mvn test'
 				}
 			}
 		}
