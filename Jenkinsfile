@@ -33,7 +33,7 @@ pipeline {
 				}
 			}
 		}
-		stage ('Push Image to Nexus') {
+		stage ('Push to Nexus') {
 			steps{
 				script{
 					gv.pushToNexus()
