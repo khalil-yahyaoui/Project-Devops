@@ -4,8 +4,8 @@ pipeline {
 		stage ('GIT') {
 			steps {
 				script{
-					echo "Getting Project from Git"
-					git clone "https://github.com/khalil-yahyaoui/Project-Devops"
+					echo "Getting Project from Git";
+					git "https://github.com/khalil-yahyaoui/Project-Devops";
 				}
 			}
 		}
