@@ -40,6 +40,13 @@ pipeline {
 				}
 			}
 		}
+		stage ('Docker Image Build') {
+			steps{
+				script{
+					gv.dockerBuild()
+				}
+			}
+		}
 	}
 }
 
