@@ -4,6 +4,13 @@ def gv
 
 pipeline {
 	agent any
+	environment {
+           NEXUS_URL="127.0.0.1:8081"
+           NEXUS_VERSION = "nexus3"
+           NEXUS_PROTOCOL = "http"
+           NEXUS_REPOSITORY = "devops"
+           NEXUS_CREDENTIAL_ID = "nexus-user-credentials"
+        }
 	stages {
 		stage ('init') {
 			steps {
@@ -30,6 +37,20 @@ pipeline {
 			steps{
 				script{
 					gv.sonarQubeTest()
+				}
+			}
+		}
+		stage ('JAR build') {
+			steps{
+				script{
+					gv.buildJar()
+				}
+			}
+		}
+		stage ('Push Image to Nexus') {
+			steps{
+				script{
+					gv.pushImageNexus(NEXUS_VERSION,NEXUS_PROTOCOL,NEXUS_URL,NEXUS_REPOSITORY, NEXUS_CREDENTIAL_ID)
 				}
 			}
 		}
