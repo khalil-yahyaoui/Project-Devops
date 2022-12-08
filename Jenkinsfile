@@ -17,7 +17,7 @@ pipeline {
 				}
 			} 
 		}
-		stage ('MVN CLEAN') {
+		stage ('Mvn clean') {
 			steps {
 				script{
 					gv.runMvnClean()
