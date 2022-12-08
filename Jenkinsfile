@@ -3,8 +3,8 @@ pipeline {
 	stages {
 		stage ('GIT') {
 			steps {
-				echo "Getting Project from Git";
-				git clone "https://github.com/khalil-yahyaoui/Project-Devops"; 
+				echo "Getting Project from Git"
+				git clone "https://github.com/khalil-yahyaoui/Project-Devops" 
 			}
 		}
 		stage ('MVN CLEAN') {
