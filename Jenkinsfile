@@ -15,7 +15,7 @@ pipeline {
 				script{
 					gv.gitClone()
 				}
-			} 
+			}
 		}
 		stage ('Mvn clean') {
 			steps {
